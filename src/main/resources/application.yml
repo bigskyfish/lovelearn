@@ -1,0 +1,20 @@
+server:
+  address: localhost
+  port: 8080
+
+spring:
+  activemq:
+    broker-url:
+  profiles: master
+    active: dev
+
+---
+## yml支持多文档块方式
+server:
+  address: localhost
+  port: 8081
+
+spring:
+  activemq:
+    broker-url:
+  profiles: dev
