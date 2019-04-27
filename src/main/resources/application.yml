@@ -12,13 +12,13 @@ server:
 
 #spring配置
 spring:
-  mvc:
-    view: #配置视图解析器
-      prefix: classpath:/WEB-INF/JSP/
-      suffix: .jsp
+  # mvc:
+  #  view: #配置视图解析器
+  #   prefix: classpath:/WEB-INF/JSP/
+  #   suffix: .jsp
   datasource:
     #com.mysql.cj.jdbc.Driver 驱动 必须设置时区serverTimezone
-    url: jdbc:mysql://localhost:3306/lovelearn_sys?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://localhost:3306/lovelearn_sys?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root #默认提醒的 data-username data-password 中- 会导致编译错误 报错是 ''@'localhost' (using password NO)
     password: 111111
@@ -60,11 +60,13 @@ spring:
         url-pattern: /*
         # 忽略过滤格式
         exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+
+# spring boot 使用thymeleaf 进行页面渲染更加方便
   thymeleaf:
     cache: false #关闭缓存
     prefix: classpath:/templates/
     suffix: .html
-    mode: HTML5
+    mode: LEGACYHTML5
     encoding: UTF-8
     servlet:
       content-type: text/html
@@ -83,5 +85,13 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
+
+#logback配置
+logging:
+  config: classpath:logging_dev.xml
+  path: C:\java_Baby_Yun\logging\loveLearn
+
+
+
 
 
