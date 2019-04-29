@@ -8,7 +8,7 @@ devtools:
 
 #设置访问端口
 server:
-  port: 8080
+  port: 8081
 
 #spring配置
 spring:
@@ -64,8 +64,6 @@ spring:
 # spring boot 使用thymeleaf 进行页面渲染更加方便
   thymeleaf:
     cache: false #关闭缓存
-    prefix: classpath:/templates/
-    suffix: .html
     mode: LEGACYHTML5
     encoding: UTF-8
     servlet:
@@ -73,11 +71,12 @@ spring:
 
 
 mybatis:
-  mapper-locations: classpath:mapping/*.xml
-  #全局的映射，不用在xml文件写实体类的全路径
-  type-aliases-package: com.floatCloud.loveLearn.dao.domain
+  mapper-locations: classpath:mapper/*/*.xml
+  #全局的映射，不用在xml文件写实体类的全路径,多个路径之间用逗号隔开
+  type-aliases-package: com.floatCloud.loveLearn.sysOa.dao.domain
   configuration:
     map-underscore-to-camel-case: true #开启驼峰映射
+
 
 #pagehelper分页插件
 pagehelper:
